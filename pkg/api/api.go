@@ -89,6 +89,9 @@ func Register(r *macaron.Macaron) {
 	// api renew session based on remember cookie
 	r.Get("/api/login/ping", quota("session"), LoginApiPing)
 
+	// api health check
+	r.Get("/api/health", GetHealth)
+
 	// authed api
 	r.Group("/api", func() {
 
